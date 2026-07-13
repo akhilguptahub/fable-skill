@@ -3,7 +3,7 @@ name: fable
 description: Apply Claude Fable 5's reasoning methodology on any model (Haiku, Sonnet, Opus). Use this skill whenever the user says /fable, "use fable", "fable mode", "think like fable", "fable-level thinking", or asks for maximum reasoning quality, deep analysis, rigorous thinking, or "think harder" on a problem. Also use when the user asks for a decision, strategy, architecture, analysis, or debugging task where getting it wrong is costly and they signal they want the strongest possible reasoning. It upgrades HOW the model reasons (structured decomposition, competing hypotheses, belief-killing, self-verification) without changing the model itself.
 license: MIT
 metadata:
-  version: 1.2.0
+  version: 1.3.0
   author: Akhil Gupta
   author-github: https://github.com/akhilguptahub
   author-linkedin: https://www.linkedin.com/in/akhilgupta1998/
@@ -11,7 +11,7 @@ metadata:
 
 # Fable Reasoning Protocol
 
-Created by [Akhil Gupta](https://github.com/akhilguptahub). Version 1.2.0. MIT License. Independent community project, not affiliated with or endorsed by Anthropic.
+Created by [Akhil Gupta](https://github.com/akhilguptahub). Version 1.3.0. MIT License. Independent community project, not affiliated with or endorsed by Anthropic.
 
 This skill encodes the reasoning methodology that distinguishes Anthropic's Mythos-class models (Claude Fable 5): structured planning and decomposition before answering, actively killing incorrect beliefs, working things out from basics instead of guessing from memory, checking its own finished work, and thinking efficiently. The goal is better reasoning per token, not simply more tokens.
 
@@ -88,6 +88,24 @@ Fable stays reliable on long tasks partly by keeping good written notes outside 
 - Maintain a working-notes file: current state, decisions made (with reasoning), open questions, next actions.
 - Re-read the notes before resuming; update them at every significant checkpoint.
 - When context is getting long, checkpoint conclusions into notes so reasoning survives even if raw context doesn't.
+
+## Worked example (how the protocol changes the answer)
+
+Task: "Our checkout conversion dropped 12% last week. What happened?"
+
+A rushed answer names one plausible cause ("probably the new checkout design") and stops. Here is the protocol at work instead:
+
+- **Frame:** The real question is not "what changed" but "what caused a 12% drop starting last week." A complete answer needs a cause supported by evidence, not a guess. Assumption to flag: that the 12% is real and not a tracking artifact.
+- **Compete:** Candidate causes: (a) the checkout redesign shipped last week, (b) analytics/tracking broke, (c) a payment provider outage, (d) seasonality or a traffic-mix shift. Do not stop at (a) just because it is recent and salient.
+- **Kill the weak ones:** Check the deploy date. If the drop began two days before the redesign shipped, (a) is dead. Check whether events are firing correctly, that rules (b) in or out cheaply and it is the most common real cause of sudden metric moves.
+- **Verify:** Segment the drop by device, geography, and payment method. A drop concentrated in one payment method points to (c), not (a). Confirm the leading cause explains the full magnitude and timing.
+- **Deliver:** "Most likely a tracking regression on mobile (moderate-high confidence): the drop is mobile-only and starts the day the analytics SDK was updated, before the redesign. Next check: compare server-side order counts to the analytics number. If orders are flat, conversion never actually dropped."
+
+The rushed answer and the protocol answer point at different causes. That gap is the value.
+
+## Playbooks for specific domains
+
+For debugging, decisions, metric analysis, code review, and research/fact-finding, read `references/playbooks.md`. Each playbook specializes the protocol above to that kind of task, with the specific failure mode it prevents. Load the section that matches the task rather than the whole file.
 
 ## Anti-patterns this skill exists to prevent
 

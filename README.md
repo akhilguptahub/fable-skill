@@ -3,7 +3,7 @@
 Make any AI model think more carefully before it answers.
 
 **Author:** Akhil Gupta ([GitHub](https://github.com/akhilguptahub) | [LinkedIn](https://www.linkedin.com/in/akhilgupta1998/))
-**Version:** 1.2.0 | **License:** MIT (free to use, see plain-English summary below)
+**Version:** 1.3.0 | **License:** MIT (free to use, see plain-English summary below)
 
 > **Independent project.** Built by Akhil Gupta as a personal optimization tool, because these thinking patterns proved useful in his own product work. Not affiliated with, sponsored by, or endorsed by Anthropic. Contains no Anthropic code or model material, only publicly documented prompting techniques. Claude, Fable, and Mythos are Anthropic trademarks, mentioned only to describe what inspired this.
 
@@ -44,7 +44,7 @@ No settings, no setup beyond installing. The skill decides how much effort each 
 ## Install (2 minutes)
 
 **Claude Desktop / Cowork** (easiest)
-Drop `fable-v1.2.0.skill` into any Claude chat and click **Save skill**.
+Drop `fable-v1.3.0.skill` into any Claude chat and click **Save skill**.
 
 **Claude.ai (web)**
 Settings > Capabilities > Skills > **Upload skill** > pick the file.

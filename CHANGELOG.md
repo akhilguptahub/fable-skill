@@ -1,19 +1,23 @@
 # Changelog
 
+## 1.3.0 - 2026-07-13
+- Added a full worked example (checkout-conversion drop) showing the protocol changing the answer, not just describing steps
+- Added references/playbooks.md: domain-specific playbooks for debugging, decisions, metric analysis, code review, and research, each naming the failure mode it prevents
+- Restructured into progressive disclosure (lean SKILL.md points to detailed playbooks) so the skill scales without bloating context
+- Version bump to 1.3.0
+
 ## 1.2.0 - 2026-07-12
-- Rewrote README in plain language, no jargon
-- Added a flowchart showing how the protocol works
-- Replaced text-heavy benefit descriptions with a before/after comparison table
-- Added a plain-English summary of the MIT license
-- Simplified wording inside the skill itself
-- Kept MIT license after review: its as-is clause is what protects the author from liability
+- Plain-language README rewrite, no jargon
+- Added flowchart of the protocol
+- Before/after benefit comparison table
+- Plain-English MIT license summary
+- Kept MIT license after review (as-is clause protects the author)
 
 ## 1.1.0 - 2026-07-12
-- Professional documentation rewrite for public release
-- Added independent-project and trademark disclaimer
-- Cross-platform installation: Claude Desktop/Cowork, Claude.ai, Claude Code, Antigravity, Codex, Cursor
-- Added GitHub attribution (github.com/akhilguptahub)
-- Removed em dashes throughout
+- Professional documentation for public release
+- Independent-project and trademark disclaimer
+- Cross-platform install: Claude Desktop/Cowork, Claude.ai, Claude Code, Antigravity, Codex, Cursor
+- GitHub attribution; removed em dashes
 
 ## 1.0.0 - 2026-07-12
 - Initial release by Akhil Gupta
